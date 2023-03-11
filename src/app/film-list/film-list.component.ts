@@ -9,20 +9,16 @@ import { FilmsService } from '../films.service';
 })
 export class FilmListComponent {
   allFilms: Film[] = [];
-  film: Film;
+  film!: Film;
   constructor(private filmService: FilmsService) { }
 
-  remove(film: Film) {
-    this.filmService.remove(film);
+  removeBest() {
+    this.filmService.removeBest();
   }
 
-  clearAll() {
-    this.filmService.clearAll();
-  };
-
-  addFilm(description: string) {
-    this.filmService.addFilm(description);
-  };
+  chooseBest(id: number) {
+    this.filmService.chooseBest(id);
+  }
 
   ngOnInit() {
     this.allFilms = this.filmService.allFilms;
