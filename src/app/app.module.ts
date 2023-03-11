@@ -5,11 +5,13 @@ import { AppComponent } from './app.component';
 import { FilmCardComponent } from './film-card/film-card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from 'src/material.module';
+import { FilmListComponent } from './film-list/film-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FilmCardComponent
+    FilmCardComponent,
+    FilmListComponent
   ],
   imports: [
     BrowserModule,
