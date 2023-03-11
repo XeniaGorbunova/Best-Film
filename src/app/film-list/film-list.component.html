@@ -1,1 +1,6 @@
 <p>film-list works!</p>
+<ul>
+  <li *ngFor="let film of allFilms">
+    <app-film-card (remove)="remove(film)" (archieve)="archieve(film)" [film]="film"></app-film-card>
+  </li>
+</ul>
