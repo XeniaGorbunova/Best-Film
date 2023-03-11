@@ -1,5 +1,4 @@
-<p>film-list works!</p>
-<ul>
+<ul class="list">
   <li *ngFor="let film of allFilms">
     <app-film-card (removeBest)="removeBest()" (chooseBest)="chooseBest(film.id)" [film]="film"></app-film-card>
   </li>
