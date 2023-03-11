@@ -1,18 +1,14 @@
 <mat-card class="card">
   <img mat-card-image src='../../images/{{film.id}}.jpeg' class="card__poster" alt="poster">
-  <mat-card-content>
-    <mat-card-title>{{film.name}}</mat-card-title>
-    <p>
-      {{film.genre}}
-    </p>
-    <p>
-      {{film.year}}
-    </p>
-  </mat-card-content>
-  <mat-card-actions>
-    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="favorite" (click)="chooseBest.emit()"></mat-icon>
+  <mat-card-title class="card__title">{{film.name}}</mat-card-title>
+  <p class="card__text">
+    {{film.genre}}
+  </p>
+  <p class="card__text">
+    {{film.year}}
+  </p>
+  <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="favorite" (click)="chooseBest.emit()"></mat-icon>
 
-    <!-- <button mat-button (click)="removeBest.emit()">LIKE</button>
-    <button mat-button (click)="chooseBest.emit()">SHARE</button> -->
-  </mat-card-actions>
+  <!-- <button mat-button (click)="removeBest.emit()">LIKE</button>
+  <button mat-button (click)="chooseBest.emit()">SHARE</button> -->
 </mat-card>
