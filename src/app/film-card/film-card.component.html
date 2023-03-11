@@ -1,15 +1,24 @@
 <mat-card class="card">
   <img mat-card-image src='../../images/{{film.id}}.jpeg' class="card__poster" alt="poster">
   <mat-card-title class="card__title">{{film.name}}</mat-card-title>
-  <p class="card__text" color="dark" *ngFor="let item of film.genre">
-    <span>
-      {{genres[film.genre.indexOf(item)]}}
+  <ul class="card__text">
+  <li *ngFor="let item of film.genre; last as isLast" class="card__genre">
+    {{genres[film.genre.indexOf(item)]}}
+    <span *ngIf="!isLast">
+      ,
     </span>
-  </p>
+  </li>
+  </ul>
   <p class="card__text">
     {{film.year}}
   </p>
-  <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="favorite" (click)="chooseBest.emit()"></mat-icon>
+  <mat-icon 
+    class="card__icon" 
+    aria-hidden="false" 
+    aria-label="Example home icon" 
+    fontIcon="favorite" 
+    (click)="chooseBest.emit(film.id)"
+  />
 
   <!-- <button mat-button (click)="removeBest.emit()">LIKE</button>
   <button mat-button (click)="chooseBest.emit()">SHARE</button> -->

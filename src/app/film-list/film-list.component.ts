@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
 import { Film } from 'src/types/film';
 import { FilmsService } from '../films.service';
@@ -8,7 +8,7 @@ import { FilmsService } from '../films.service';
   templateUrl: './film-list.component.html',
   styleUrls: ['./film-list.component.scss']
 })
-export class FilmListComponent {
+export class FilmListComponent implements OnInit, OnDestroy {
   private readonly unsubscribe$: Subject<void> = new Subject();
   allFilms: Film[] = [];
   film!: Film;

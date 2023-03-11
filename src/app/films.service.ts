@@ -7,14 +7,15 @@ import { Film } from 'src/types/film';
   providedIn: 'root'
 })
 export class FilmsService {
-  bestFilm: Film | null;
+  bestFilm?: Film | null;
   allFilms!: Film[];
 
   constructor(private http: HttpClient) {
-    this.bestFilm = null;
     this.http.get<Film[]>('assets/data.json').subscribe((res: Film[]) => {
       this.allFilms = res;
       console.log('--- result :: ', this.allFilms);
+      // this.bestFilm = this.getBestFilmFromLS();
+      console.log(this.bestFilm);
     });
   }
 
@@ -33,7 +34,7 @@ export class FilmsService {
 
   chooseBest(id: number) {
     this.bestFilm = this.allFilms.find((film) => film.id === id) || null;
-    if (this.bestFilm !== null) window.localStorage.setItem('BEST_FILM', this.bestFilm.name);
+    if (this.bestFilm !== null) window.localStorage.setItem('BEST_FILM', JSON.stringify(this.bestFilm));
   }
 
   filter(genre: number) {
@@ -41,6 +42,7 @@ export class FilmsService {
   }
 
   getBestFilmFromLS() {
-    this.bestFilm = this.allFilms.find((film) => film.name === window.localStorage.getItem('BEST_FILM')) || null;
+    // if (typeof window.localStorage.getItem('BEST_FILM') === 'string') return JSON.parse(window.localStorage.getItem('BEST_FILM'))
+    // else return null;
   }
 }

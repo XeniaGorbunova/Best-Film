@@ -1,5 +1,16 @@
 <div class="container">
   <h2 class="app__title">Популярные фильмы</h2>
+  <form class="">
+    <mat-form-field class="">
+      <mat-select [(value)]="selectOptions[0]">
+        <mat-option></mat-option>
+        <mat-option [value]="option" *ngFor="let option of selectOptions">{{ option }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="">
+      <input matInput value="Введите название">
+    </mat-form-field>
+  </form>
   <app-film-list></app-film-list>
   <h2 class="app__title">Самый лучший фильм</h2>
   <app-film-card *ngIf="bestFilm" [film]="bestFilm"></app-film-card>

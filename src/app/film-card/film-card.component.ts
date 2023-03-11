@@ -11,8 +11,9 @@ import { FilmsService } from '../films.service';
 export class FilmCardComponent {
   genres: string[];
   @Input() film!: Film;
-  @Output() chooseBest = new EventEmitter<Film>();
-  @Output() removeBest = new EventEmitter<Film>();
+  @Input() bestFilm?: Film;
+  @Output() chooseBest = new EventEmitter<number>();
+  @Output() removeBest = new EventEmitter();
   constructor(private filmService: FilmsService) {
     this.genres = genres;
   }
