@@ -1,8 +1,10 @@
 <mat-card class="card">
   <img mat-card-image src='../../images/{{film.id}}.jpeg' class="card__poster" alt="poster">
   <mat-card-title class="card__title">{{film.name}}</mat-card-title>
-  <p class="card__text">
-    {{film.genre}}
+  <p class="card__text" color="dark" *ngFor="let item of film.genre">
+    <span>
+      {{genres[film.genre.indexOf(item)]}}
+    </span>
   </p>
   <p class="card__text">
     {{film.year}}
