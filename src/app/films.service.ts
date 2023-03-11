@@ -12,14 +12,13 @@ export class FilmsService {
 
   constructor(private http: HttpClient) {
     this.bestFilm = null;
+    this.http.get<Film[]>('assets/data.json').subscribe((res: Film[]) => {
+      this.allFilms = res;
+      console.log('--- result :: ', this.allFilms);
+    });
   }
 
   getFilms(): Observable<Film[]> {
-    // this.http.get<Film[]>('assets/data.json').subscribe((res: Film[]) => {
-    //   this.allFilms = res;
-    //   console.log('--- result :: ', this.allFilms);
-    // });
-    // return this.allFilms;
     return this.http.get<Film[]>('assets/data.json');
   }
 

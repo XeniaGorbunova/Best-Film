@@ -3,16 +3,16 @@
   <mat-card-content>
     <mat-card-title>{{film.name}}</mat-card-title>
     <p>
-      {{film.description}}
+      {{film.genre}}
     </p>
     <p>
       {{film.year}}
     </p>
   </mat-card-content>
   <mat-card-actions>
-    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
+    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="favorite" (click)="chooseBest.emit()"></mat-icon>
 
-    <button mat-button (click)="removeBest.emit()">LIKE</button>
-    <button mat-button (click)="chooseBest.emit()">SHARE</button>
+    <!-- <button mat-button (click)="removeBest.emit()">LIKE</button>
+    <button mat-button (click)="chooseBest.emit()">SHARE</button> -->
   </mat-card-actions>
 </mat-card>
