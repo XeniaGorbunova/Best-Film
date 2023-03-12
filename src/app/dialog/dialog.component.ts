@@ -1,6 +1,18 @@
-import { Component } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component, EventEmitter, Inject, Input, Output } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { genres } from 'src/assets/genre';
+import { Film } from 'src/types/film';
 import { FilmCardComponent } from '../film-card/film-card.component';
+import { FilmsService } from '../films.service';
+
+export interface DialogData {
+  id: number,
+  name: string;
+  description: string;
+  year: number;
+  genre: number[];
+  isFavorite: boolean;
+}
 
 @Component({
   selector: 'app-dialog',
@@ -8,5 +20,12 @@ import { FilmCardComponent } from '../film-card/film-card.component';
   styleUrls: ['./dialog.component.scss']
 })
 export class DialogComponent {
-  constructor(public dialogRef: MatDialogRef<FilmCardComponent>) { }
+  genres: string[];
+  constructor(public dialogRef: MatDialogRef<FilmCardComponent>, @Inject(MAT_DIALOG_DATA) public data: DialogData,) {
+    this.genres = genres;
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
 }

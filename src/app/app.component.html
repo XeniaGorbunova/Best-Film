@@ -2,8 +2,7 @@
   <h2 class="app__title">Популярные фильмы</h2>
   <form class="">
     <mat-form-field class="">
-      <mat-select [(value)]="selectOptions[0]">
-        <mat-option></mat-option>
+      <mat-select [(value)]="selectOptions[0]" appearance="outline" class="form__select">
         <mat-option [value]="option" *ngFor="let option of selectOptions">{{ option }}</mat-option>
       </mat-select>
     </mat-form-field>

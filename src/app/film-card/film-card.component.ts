@@ -1,3 +1,4 @@
+import { DialogRef } from '@angular/cdk/dialog';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { genres } from 'src/assets/genre';
@@ -19,11 +20,23 @@ export class FilmCardComponent {
     this.genres = genres;
   }
 
-  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+  openDialog(film: Film, enterAnimationDuration: string, exitAnimationDuration: string): void {
     this.dialog.open(DialogComponent, {
-      width: '250px',
+      data: {
+        id: film.id,
+        name: film.name,
+        description: film.description,
+        year: film.year,
+        genre: film.genre,
+        isFavorite: film.id === this.bestFilm?.id,
+      },
+      width: '756px',
       enterAnimationDuration,
       exitAnimationDuration,
     });
+    // DialogRef.afterClosed().subscribe(result => {
+    //   console.log('The dialog was closed');
+    //   this.animal = result;
+    // });
   }
 }

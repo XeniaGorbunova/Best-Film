@@ -1,8 +1,30 @@
-<h1 mat-dialog-title>Delete file</h1>
-  <div mat-dialog-content>
-    Would you like to delete cat.jpeg?
+<div class="dialog__container">
+  <img mat-card-image src='../../images/{{data.id}}.jpeg' class="card__poster" alt="poster">
+  <div class="dialog__content">
+    <h1 mat-dialog-title class="dialog__title">{{data.name}}</h1>
+    <div mat-dialog-content class="dialog__info">
+      <ul class="dialog__text">
+        <li *ngFor="let item of data.genre; last as isLast" class="dialog__genre">
+          {{genres[data.genre.indexOf(item)]}}
+          <span *ngIf="!isLast">
+            ,
+          </span>
+        </li>
+      </ul>
+      <p class="dialog__text">{{data.year}}</p>
+      <p class="dialog__text">{{data.description}}</p>
+    </div>
+    <div mat-dialog-actions class="dialog__actions">
+      <button 
+        mat-button 
+        mat-dialog-close 
+        class="dialog__button" 
+        [ngStyle]="{'color':data.isFavorite ? '#F44366' : '#3F51B5' }">
+        {{data.isFavorite ? 'Удалить из лучших фильмов' : 'Выбрать лучшим фильмом'}}
+      </button>
+      <button mat-button mat-dialog-close cdkFocusInitial class="dialog__button">
+        Закрыть
+      </button>
+    </div>
   </div>
-  <div mat-dialog-actions>
-    <button mat-button mat-dialog-close>No</button>
-    <button mat-button mat-dialog-close cdkFocusInitial>Ok</button>
-  </div>
+</div>
