@@ -21,7 +21,7 @@ export class FilmCardComponent {
   }
 
   openDialog(film: Film, enterAnimationDuration: string, exitAnimationDuration: string): void {
-    this.dialog.open(DialogComponent, {
+    const dialogRef = this.dialog.open(DialogComponent, {
       data: {
         id: film.id,
         name: film.name,
@@ -34,9 +34,8 @@ export class FilmCardComponent {
       enterAnimationDuration,
       exitAnimationDuration,
     });
-    // DialogRef.afterClosed().subscribe(result => {
-    //   console.log('The dialog was closed');
-    //   this.animal = result;
-    // });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === true) this.toggleBestFilm.emit(film.id);
+    });
   }
 }

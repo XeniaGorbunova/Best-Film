@@ -24,8 +24,4 @@ export class DialogComponent {
   constructor(public dialogRef: MatDialogRef<FilmCardComponent>, @Inject(MAT_DIALOG_DATA) public data: DialogData,) {
     this.genres = genres;
   }
-
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
 }

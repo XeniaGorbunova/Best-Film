@@ -18,6 +18,7 @@
       <button 
         mat-button 
         mat-dialog-close 
+        [mat-dialog-close]="true"
         class="dialog__button" 
         [ngStyle]="{'color':data.isFavorite ? '#F44366' : '#3F51B5' }">
         {{data.isFavorite ? 'Удалить из лучших фильмов' : 'Выбрать лучшим фильмом'}}
