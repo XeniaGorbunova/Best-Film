@@ -3,3 +3,5 @@
     <app-film-card (removeBest)="removeBest()" (chooseBest)="chooseBest(film.id)" [film]="film"></app-film-card>
   </li>
 </ul>
+<h2 class="app__title">Самый лучший фильм</h2>
+<app-film-card (removeBest)="removeBest()" (chooseBest)="chooseBest(film.id)" *ngIf="bestFilm" [film]="bestFilm"></app-film-card>

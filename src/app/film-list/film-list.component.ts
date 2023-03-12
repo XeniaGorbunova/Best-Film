@@ -12,6 +12,7 @@ export class FilmListComponent implements OnInit, OnDestroy {
   private readonly unsubscribe$: Subject<void> = new Subject();
   allFilms: Film[] = [];
   film!: Film;
+  bestFilm!: Film | null;
   constructor(private filmService: FilmsService) { }
 
   getAllFilms() {
@@ -28,14 +29,17 @@ export class FilmListComponent implements OnInit, OnDestroy {
 
   removeBest() {
     this.filmService.removeBest();
+    if (this.filmService.bestFilm !== undefined) this.bestFilm = this.filmService.bestFilm;
   }
 
   chooseBest(id: number) {
     this.filmService.chooseBest(id);
+    if (this.filmService.bestFilm !== undefined) this.bestFilm = this.filmService.bestFilm;
   }
 
   ngOnInit() {
     this.getAllFilms();
+    if (this.filmService.bestFilm !== undefined) this.bestFilm = this.filmService.bestFilm;
   }
 
   ngOnDestroy() {

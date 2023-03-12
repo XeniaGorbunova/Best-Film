@@ -9,15 +9,16 @@ import { FilmsService } from './films.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+  query!: string;
   title = 'bestFilm';
   bestFilm!: Film | null;
   selectOptions!: string[];
   constructor(private filmService: FilmsService) {
     this.selectOptions = ['все', ...genres];
+    this.query = '';
   }
 
   ngOnInit() {
-    // this.bestFilm = this.filmService.getBestFilmFromLS();
-    // console.log('!', this.bestFilm);
+    if (this.filmService.bestFilm !== undefined) this.bestFilm = this.filmService.bestFilm;
   }
 }

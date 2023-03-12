@@ -14,9 +14,8 @@ export class FilmsService {
     this.http.get<Film[]>('assets/data.json').subscribe((res: Film[]) => {
       this.allFilms = res;
       console.log('--- result :: ', this.allFilms);
-      // this.bestFilm = this.getBestFilmFromLS();
-      console.log(this.bestFilm);
     });
+    this.bestFilm = this.getBestFilmFromLS();
   }
 
   getFilms(): Observable<Film[]> {
@@ -42,7 +41,7 @@ export class FilmsService {
   }
 
   getBestFilmFromLS() {
-    // if (typeof window.localStorage.getItem('BEST_FILM') === 'string') return JSON.parse(window.localStorage.getItem('BEST_FILM'))
-    // else return null;
+    const filmFromLS = window.localStorage.getItem('BEST_FILM');
+    return (typeof filmFromLS === 'string') ? JSON.parse(filmFromLS) : null;
   }
 }
