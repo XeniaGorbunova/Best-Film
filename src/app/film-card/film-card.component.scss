@@ -44,6 +44,8 @@
   margin-right: 4px;
 }
 
-.card__icon {
-  cursor: pointer;
+.card__button {
+  position: absolute;
+  width: 150px;
+  bottom: 10px;
 }

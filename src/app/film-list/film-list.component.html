@@ -1,7 +1,11 @@
 <ul class="list">
   <li *ngFor="let film of allFilms">
-    <app-film-card (toggleBestFilm)="toggleBestFilm(film.id)" [film]="film"></app-film-card>
+    <app-film-card 
+      (toggleBestFilm)="toggleBestFilm(film.id)" 
+      [film]="film" 
+      [bestFilm]="bestFilm"
+    />
   </li>
 </ul>
 <h2 class="app__title">Самый лучший фильм</h2>
-<app-film-card (toggleBestFilm)="toggleBestFilm(film.id)" *ngIf="bestFilm" [film]="bestFilm"></app-film-card>
+<app-film-card (toggleBestFilm)="toggleBestFilm(bestFilm.id)" *ngIf="bestFilm" [film]="bestFilm"></app-film-card>

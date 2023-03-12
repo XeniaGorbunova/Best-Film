@@ -12,13 +12,17 @@
   <p class="card__text">
     {{film.year}}
   </p>
-  <mat-icon 
-    class="card__icon" 
-    aria-hidden="false" 
-    aria-label="Example home icon" 
-    fontIcon="favorite" 
-    (click)="toggleBestFilm.emit(film.id)"
-  />
+  <button mat-button aria-label="favirote icon" (click)="toggleBestFilm.emit(film.id)" class="card__button">
+    <mat-icon *ngIf="bestFilm && film.id !== bestFilm.id || !bestFilm"
+      aria-hidden="false"  
+      fontIcon="favorite_outline"
+    />
+    <mat-icon *ngIf="bestFilm && film.id === bestFilm.id"
+      aria-hidden="false"  
+      fontIcon="favorite"
+    />
+  </button>
+  
 
   <!-- <button mat-button (click)="removeBest.emit()">LIKE</button>
   <button mat-button (click)="chooseBest.emit()">SHARE</button> -->
