@@ -7,12 +7,14 @@ import { FilmCardComponent } from './film-card/film-card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from 'src/material.module';
 import { FilmListComponent } from './film-list/film-list.component';
+import { DialogComponent } from './dialog/dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FilmCardComponent,
-    FilmListComponent
+    FilmListComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
