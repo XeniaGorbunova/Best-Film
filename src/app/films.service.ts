@@ -36,6 +36,11 @@ export class FilmsService {
     if (this.bestFilm !== null) window.localStorage.setItem('BEST_FILM', JSON.stringify(this.bestFilm));
   }
 
+  toggleBestFilm(id: number) {
+    if (this.bestFilm === null) this.chooseBest(id);
+    else (this.bestFilm?.id === id) ? this.removeBest() : this.chooseBest(id);
+  }
+
   filter(genre: number) {
     this.allFilms.filter((film) => film.genre.includes(genre));
   }
