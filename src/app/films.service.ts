@@ -22,10 +22,6 @@ export class FilmsService {
     return this.http.get<Film[]>('assets/data.json');
   }
 
-  search(query: string) {
-    this.allFilms.filter((film) => film.name.toLowerCase().includes(query.toLowerCase()));
-  }
-
   removeBest() {
     this.bestFilm = null;
     window.localStorage.removeItem('BEST_FILM');
@@ -39,10 +35,6 @@ export class FilmsService {
   toggleBestFilm(id: number) {
     if (this.bestFilm === null) this.chooseBest(id);
     else (this.bestFilm?.id === id) ? this.removeBest() : this.chooseBest(id);
-  }
-
-  filter(genre: number) {
-    this.allFilms.filter((film) => film.genre.includes(genre));
   }
 
   getBestFilmFromLS() {

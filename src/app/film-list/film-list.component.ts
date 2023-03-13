@@ -37,6 +37,10 @@ export class FilmListComponent implements OnInit, OnDestroy {
             this.allFilms = res.filter((film) => film.genre.includes(genreIndex));
           }
           else this.allFilms = res;
+          const query = this.form.value.query.trim().toLowerCase();
+          if (query !== '') {
+            this.allFilms = this.allFilms.filter((film) => film.name.toLowerCase().includes(query));
+          }
           console.log(res);
         },
         (err) => console.log(err)
@@ -46,16 +50,6 @@ export class FilmListComponent implements OnInit, OnDestroy {
   toggleBestFilm(id: number) {
     this.filmService.toggleBestFilm(id);
     if (this.filmService.bestFilm !== undefined) this.bestFilm = this.filmService.bestFilm;
-  }
-
-  selectFilms() {
-    console.log(this.form);
-    const genreIndex = genres.indexOf(this.form.value.genre) + 1;
-    // this.allFilms = this.allFilms.filter((film) => film.name.toLowerCase().includes(this.form.value.query.toLowerCase()));
-    // this.allFilms = this.allFilms.filter((film) => film.genre.includes(genreIndex));
-    console.log(this.allFilms);
-    // this.filmService.search(this.form.value.query);
-    // this.filmService.filter(this.form.value.genre);
   }
 
   ngOnInit() {

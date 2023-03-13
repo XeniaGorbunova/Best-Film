@@ -1,4 +1,4 @@
-<form [formGroup]="form" (ngSubmit)="selectFilms()">
+<form [formGroup]="form" (ngSubmit)="getAllFilms()">
   <mat-form-field appearance="outline" class="form__select">
     <mat-select formControlName="genre" (ngModelChange)="getAllFilms()">
       <mat-option [value]="option" *ngFor="let option of selectOptions">{{ option }}</mat-option>
@@ -9,6 +9,7 @@
       matInput 
       formControlName="query"
       placeholder="Введите название"
+      (ngModelChange)="getAllFilms()"
     />
   </mat-form-field>
 </form>
