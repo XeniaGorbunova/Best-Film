@@ -55,6 +55,7 @@
 .dialog__actions {
   width: 100%;
   padding: 0;
+  margin-top: 10px;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -71,4 +72,10 @@
   height: 0;
   content: "";
   vertical-align: 0;
+}
+
+@media only screen and (max-width: 600px) {
+  .dialog__container {
+    flex-direction: column;
+  }
 }

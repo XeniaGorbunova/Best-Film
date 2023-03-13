@@ -21,3 +21,10 @@
 .mat-mdc-form-field-subscript-wrapper {
   height: 0;
 }
+
+@media only screen and (max-width: 600px) {
+  .list {
+    align-items: center;
+    justify-content: center;
+  }
+}

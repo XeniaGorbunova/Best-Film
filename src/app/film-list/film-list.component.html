@@ -22,5 +22,5 @@
     />
   </li>
 </ul>
-<h2 class="app__title">Самый лучший фильм</h2>
-<app-film-card (toggleBestFilm)="toggleBestFilm(bestFilm.id)" *ngIf="bestFilm" [film]="bestFilm" [bestFilm]="bestFilm"></app-film-card>
+<h2 class="app__title" *ngIf="bestFilm">Самый лучший фильм</h2>
+<app-film-card (toggleBestFilm)="toggleBestFilm(bestFilm.id)" *ngIf="bestFilm" [film]="bestFilm" [bestFilm]="bestFilm" />

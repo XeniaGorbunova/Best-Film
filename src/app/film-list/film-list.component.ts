@@ -15,12 +15,10 @@ export class FilmListComponent implements OnInit, OnDestroy {
   allFilms: Film[] = [];
   film!: Film;
   bestFilm!: Film | null;
-  // query!: string;
   selectOptions!: string[];
   form: FormGroup;
   constructor(private filmService: FilmsService, private fb: FormBuilder) {
     this.selectOptions = ['все', ...genres];
-    // this.query = '';
     this.form = this.fb.group({
       query: [''],
       genre: [this.selectOptions[0]],

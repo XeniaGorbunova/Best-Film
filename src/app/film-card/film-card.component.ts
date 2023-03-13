@@ -1,6 +1,5 @@
-import { DialogRef } from '@angular/cdk/dialog';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { genres } from 'src/assets/genre';
 import { Film } from 'src/types/film';
 import { DialogComponent } from '../dialog/dialog.component';
