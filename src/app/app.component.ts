@@ -8,17 +8,7 @@ import { FilmsService } from './films.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
-  query!: string;
+export class AppComponent {
   title = 'bestFilm';
-  bestFilm!: Film | null;
-  selectOptions!: string[];
-  constructor(private filmService: FilmsService) {
-    this.selectOptions = ['все', ...genres];
-    this.query = '';
-  }
-
-  ngOnInit() {
-    if (this.filmService.bestFilm !== undefined) this.bestFilm = this.filmService.bestFilm;
-  }
+  constructor() { }
 }

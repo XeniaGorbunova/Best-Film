@@ -3,7 +3,7 @@
   <mat-card-title class="card__title">{{film.name}}</mat-card-title>
   <ul class="card__text">
   <li *ngFor="let item of film.genre; last as isLast" class="card__genre">
-    {{genres[film.genre.indexOf(item)]}}
+    {{genres[item - 1]}}
     <span *ngIf="!isLast">
       ,
     </span>
@@ -12,7 +12,7 @@
   <p class="card__text">
     {{film.year}}
   </p>
-  <button mat-button aria-label="favirote icon" (click)="toggleBestFilm.emit(film.id)" class="card__button">
+  <button mat-button aria-label="favirote icon" (click)="$event.stopPropagation(); toggleBestFilm.emit(film.id)" class="card__button">
     <mat-icon *ngIf="bestFilm && film.id !== bestFilm.id || !bestFilm"
       aria-hidden="false"  
       fontIcon="favorite_outline"
