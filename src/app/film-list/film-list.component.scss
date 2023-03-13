@@ -11,8 +11,13 @@
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   font-size: 20px;
+  margin-bottom: 20px;
 }
 
 .form__select {
   margin-right: 8px;
+}
+
+.mat-mdc-form-field-subscript-wrapper {
+  height: 0;
 }
