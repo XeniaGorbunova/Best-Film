@@ -1,6 +1,6 @@
 # BestFilm
 
-Training progect.
+Training project.
 
 Choose your best film!
 
